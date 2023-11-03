@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SaveTextTest : MonoBehaviour
+{ 
+
+    void Start()
+    {
+        SaveData(Application.dataPath, "This is test data please ignore!");
+    }
+
+    void SaveData(string path, string data)
+    {
+        System.IO.File.WriteAllText(path + "/test_data.txt", data);
+        Debug.Log("Saved to " + path);
+    }
+
+}
