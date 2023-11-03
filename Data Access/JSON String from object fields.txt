@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class JsonTest : MonoBehaviour
+{
+
+    // Initialize new car object with color field = red
+    public Car testCar = new Car("red");
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        Debug.Log("[SCRIPTS]: " + JsonUtility.ToJson(testCar));
+    }
+}
+
+
+// Car object for messing around with
+[System.Serializable]
+public class Car
+{
+
+    // Fields
+    public string color;
+    int weight;
+
+
+    // Constructor
+    public Car(string color)
+    {
+        this.color = color;
+    }
+    
+    // Built-in function to export json string
+    public string SaveToString()
+    {
+        return JsonUtility.ToJson(this);
+    }
+}
